@@ -5,11 +5,15 @@ public class Application {
     public static void main(String[] args) {
 
         Console console = new Console();
-        console.inputText();
-        console.inputKey();
-
         CeasarCipher cypher = new CeasarCipher();
-        cypher.encryptInputtedText(SaveInputtedText.inputtedText);
+
+        console.inputInitialText();
+        console.inputEncryptKey();
+        cypher.encryptInputtedText(Console.inputtedInitialText);
+
+        console.inputEncryptedText();
+        console.inputDecryptKey();
+        cypher.decryptInputtedText(Console.inputtedEncryptedText);
 
     }
 }
