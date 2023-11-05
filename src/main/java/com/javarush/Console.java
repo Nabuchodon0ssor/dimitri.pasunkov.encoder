@@ -16,13 +16,13 @@ public class Console {
             for (char ch : chars) {
                 inputtedInitialText.add(ch);
             }
-            inputtedInitialText.add('\n');
+//            inputtedInitialText.add('\n');
         }
         System.out.println("Inputted Text: " + inputtedInitialText);
     }
 
     public void inputEncryptKey(){
-        System.out.println("Please input the key (from 1 to 25)");
+        System.out.println("Please input the encrypting key");
         CeasarCipher key = new CeasarCipher();
         key.initializeEncryptKey();
     }
@@ -36,12 +36,12 @@ public class Console {
             for (char ch : chars) {
                 inputtedEncryptedText.add(ch);
             }
-            inputtedEncryptedText.add('\n');
+//            inputtedEncryptedText.add('\n');
         }
         System.out.println("Inputted Text: " + inputtedEncryptedText);
     }
     public void inputDecryptKey(){
-        System.out.println("Please input the key (from 1 to 25)");
+        System.out.println("Please input the decrypting key");
         CeasarCipher key = new CeasarCipher();
         key.initializeDecryptKey();
     }
