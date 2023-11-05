@@ -24,7 +24,6 @@ public class CeasarCipher {
             if (chars == '\n') {
                 encryptedText.add('\n');
             }
-            else continue;
         }
         System.out.println("Encrypted Text: " + encryptedText);
     }
