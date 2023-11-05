@@ -13,13 +13,9 @@ public class CeasarCipher {
     }
     public void encryptInputtedText(ArrayList<Character> inputtedText) {
         for (char chars : inputtedText) {
-            if (Constants.ALPHABET_EN.contains(chars)) {
-                int index = Constants.ALPHABET_EN.indexOf(chars);
-                while (Constants.ALPHABET_EN.size() - 1 - index < KEY) {
-                    index = Math.abs(Constants.ALPHABET_EN.size() - index - KEY);
-                }
-                encryptedText.add(Constants.ALPHABET_EN.get(index));
-            }
+            int index = Constants.ALPHABET_EN.indexOf(chars);
+            int encryptIndex = (KEY + index) % 26;
+            encryptedText.add(Constants.ALPHABET_EN.get(encryptIndex));
 
             if (chars == '\n') {
                 encryptedText.add('\n');
