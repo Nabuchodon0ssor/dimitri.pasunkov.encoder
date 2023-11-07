@@ -7,11 +7,13 @@ public class CeasarCipher {
        
     public static int ENCRYPT_KEY;
     public static int DECRYPT_KEY;
-    Scanner scan = new Scanner(System.in);
     
-    public void initializeEncryptKey() {
-        ENCRYPT_KEY = scan.nextInt();
-        System.out.println("Inputted Key: " + ENCRYPT_KEY);
+    
+    public int scanKey() {
+        Scanner scan = new Scanner(System.in);
+        int key = scan.nextInt();
+        scan.close();
+        return key;
     }
     public void initializeDecryptKey() {
         DECRYPT_KEY = scan.nextInt();
