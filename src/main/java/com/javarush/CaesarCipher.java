@@ -12,13 +12,12 @@ public class CaesarCipher {
     public ArrayList<Character> encryptText(ArrayList<Character> inputtedInitialText, int key) {
         
         for (char chars : inputtedInitialText) {
-            int position = Constants.ALPHABET_EN.indexOf(chars);
-            int encryptIndex = (key + position) % 26;
-            Texts.inputtedTextEncrypted.add(Constants.ALPHABET_EN.get(encryptIndex));
-
-//            if (chars == '\n') {
-//                encryptedText.add('\n');
-//            }
+            if(Constants.ALPHABET_EN.contains(chars)) {
+                int position = Constants.ALPHABET_EN.indexOf(chars);
+                int encryptIndex = (key + position) % 26;
+                Texts.inputtedTextEncrypted.add(Constants.ALPHABET_EN.get(encryptIndex));
+            }
+            else Texts.inputtedTextEncrypted.add(chars);
         }
         return Texts.inputtedTextEncrypted;
     }
@@ -45,13 +44,15 @@ public class CaesarCipher {
     public ArrayList<Character> decryptText(ArrayList<Character> text, int key){
        
         for (char chars : text) {
-            int position = Constants.ALPHABET_EN.indexOf(chars);
-            int decryptIndex = (position - key) % 26;
-            if(decryptIndex<0){
-                decryptIndex = Constants.ALPHABET_EN.size() + decryptIndex;
+            if(Constants.ALPHABET_EN.contains(chars)) {
+                int position = Constants.ALPHABET_EN.indexOf(chars);
+                int decryptIndex = (position - key) % 26;
+                if (decryptIndex < 0) {
+                    decryptIndex = Constants.ALPHABET_EN.size() + decryptIndex;
+                }
+                Texts.inputtedTextDecrypted.add(Constants.ALPHABET_EN.get(decryptIndex));
             }
-            Texts.inputtedTextDecrypted.add(Constants.ALPHABET_EN.get(decryptIndex));
-
+            else Texts.inputtedTextDecrypted.add(chars);
 //            if (chars == '\n') {
 //                Texts.decryptedText.add('\n');
 //            }
