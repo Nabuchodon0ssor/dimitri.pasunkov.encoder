@@ -6,6 +6,6 @@ public class Texts {
   public static ArrayList<Character> inputtedTextDecrypted;
   
   public static ArrayList<Character> initialTextFromFile;
-  public static ArrayList<Character> encryptedTextFromFile;
-  public static ArrayList<Character> decryptedTextFromFile;
+  public static ArrayList<Character> textFromFileEncrypted;
+  public static ArrayList<Character> textFromFileDecrypted;
 }
