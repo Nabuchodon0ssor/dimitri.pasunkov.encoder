@@ -3,11 +3,12 @@ package com.javarush;
 public class FileService {
   public static ArrayList<Character> fileInitialText = new ArrayList<>();
   public static ArrayList<Character> fileEncryptedText = new ArrayList<>();
+  
   String path = "filepath";
   
   
     
-  public void saveFileInitialText(String path){
+  public void saveInitialTextFromFile(String filePath){
     File file = new File(path);
     Scanner scanner = new Scanner(file);
         
@@ -23,6 +24,15 @@ public class FileService {
     scanner.close();
     }
  
- 
+public void writeEncryptedTextToFile(String newFilePath){
+    File newFile = new File(newFilePath);
+    PrintWriter pw = new PrintWriter(newFile);
+     for (Character ch : fileEncryptedText) 
+       {
+         pw.print(ch);
+       }
+}
+
+  
   
 }
