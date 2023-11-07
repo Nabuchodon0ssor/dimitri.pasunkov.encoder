@@ -1,11 +1,13 @@
 package com.javarush;
 
+import java.util.ArrayList;
+
 public class Texts {
-  public static ArrayList<Character> inputtedInitialText;
-  public static ArrayList<Character> inputtedTextEncrypted;
-  public static ArrayList<Character> inputtedTextDecrypted;
+  public static ArrayList<Character> inputtedInitialText = new ArrayList<>();
+  public static ArrayList<Character> inputtedTextEncrypted = new ArrayList<>();
+  public static ArrayList<Character> inputtedTextDecrypted = new ArrayList<>();
   
-  public static ArrayList<Character> initialTextFromFile;
-  public static ArrayList<Character> textFromFileEncrypted;
-  public static ArrayList<Character> textFromFileDecrypted;
+  public static ArrayList<Character> originalTextFromFile = new ArrayList<>();
+  public static ArrayList<Character> encryptedFileText = new ArrayList<>();
+  public static ArrayList<Character> decryptedFileText = new ArrayList<>();
 }

@@ -1,41 +1,23 @@
 package com.javarush;
 
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class FileService {
-  public static ArrayList<Character> fileInitialText = new ArrayList<>();
-  public static ArrayList<Character> fileEncryptedText = new ArrayList<>();
-  public static ArrayList<Character> fileDecryptedText = new ArrayList<>();
-  
-  public static String filePath = "filepath";
+  public static String originalFilePath;
   public static String filePathEncrypted;
   public static String filePathDecrypted;
       
-  public ArrayList<Character> saveTextFromFile(String filePath){
-    ArrayList<Character> fileInitialText = new ArrayList<>();
-    File file = new File(path);
-    Scanner scanner = new Scanner(file);
-        
-    while(scanner.hasNextLine()) {
-            String line = scan.nextLine();
-            char[] chars = line.toCharArray();
-            for (char ch : chars) {
-                fileInitialText.add(ch);
-            }
-//            fileInitialText.add('\n');
-        }
-        System.out.println("File Text: " + fileInitialText);
-    scanner.close();
-    return fileInitialText;
-    }
- 
-public void writeTextToFile(ArrayList<Character> text, String newFilePath){
-    File newFile = new File(newFilePath);
-    PrintWriter pw = new PrintWriter(newFile);
-     for (Character ch : text) 
-       {
-         pw.print(ch);
-       }
-  pw.close();
-}
+  public void createEncryptedFile(String filePath) throws IOException {
+    Files.createFile(Path.of(filePath+"[ENCRYPTED]"));
+  }
+
+  public void createDecryptedFile(String filePath) throws IOException {
+    Files.createFile(Path.of(filePath+"[DECRYPTED]"));
+  }
+
 
   
   

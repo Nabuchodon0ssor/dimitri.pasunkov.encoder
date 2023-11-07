@@ -1,19 +1,24 @@
 package com.javarush;
 
 
+import java.io.IOException;
+
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Console console = new Console();
-        CeasarCipher cypher = new CeasarCipher();
+        CaesarCipher cypher = new CaesarCipher();
 
-        console.inputInitialText();
-        console.inputEncryptKey();
-        cypher.encryptInputtedText(Console.inputtedInitialText, ENCRYPT_KEY);
+        console.run();
 
-        console.inputEncryptedText();
-        console.inputDecryptKey();
-        cypher.decryptInputtedText(Console.inputtedEncryptedText, DECRYPT_KEY);
+
+//        console.menu();
+//        console.inputEncryptKey();
+//        cypher.encryptInputtedText(Console.inputtedInitialText, ENCRYPT_KEY);
+//
+//        console.inputEncryptedText();
+//        console.inputDecryptKey();
+//        cypher.decryptInputtedText(Console.inputtedEncryptedText, DECRYPT_KEY);
 
 
         // Добро пожаловать в программу шифрования текста! Если текст, который надо зашифровать/ дешифровать, находится в текстовом файле, введите File, если Вы хотите произвести ввод вручную, введите Input

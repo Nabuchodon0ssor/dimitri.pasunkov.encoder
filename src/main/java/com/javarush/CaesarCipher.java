@@ -1,8 +1,8 @@
 package com.javarush;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class CeasarCipher {
+public class CaesarCipher {
 
        
     public static int ENCRYPT_KEY;
@@ -14,71 +14,75 @@ public class CeasarCipher {
         for (char chars : inputtedInitialText) {
             int position = Constants.ALPHABET_EN.indexOf(chars);
             int encryptIndex = (key + position) % 26;
-            Texts.encryptedText.add(Constants.ALPHABET_EN.get(encryptIndex));
-//
+            Texts.inputtedTextEncrypted.add(Constants.ALPHABET_EN.get(encryptIndex));
+
 //            if (chars == '\n') {
 //                encryptedText.add('\n');
 //            }
         }
-        System.out.println("Encrypted Text: " + Texts.encryptedText);
-        return Texts.encryptedText;
+        return Texts.inputtedTextEncrypted;
     }
 
     public ArrayList<Character> encryptFile(String filePath, int key) {
-        Texts.initialTextFromFile = new FileService.scanTextFromFile(filePath);
+        FileReader fs = new FileReader();
+        try{        Texts.originalTextFromFile = fs.scanTextFromFile(filePath);}
+        catch(FileNotFoundException e){
+            System.out.println("File not exists");
+        }
            
-        for (char chars : inputtedInitialText) {
+        for (char chars : Texts.originalTextFromFile) {
             int position = Constants.ALPHABET_EN.indexOf(chars);
             int encryptIndex = (key + position) % 26;
-            Texts.fileTextEncrypted.add(Constants.ALPHABET_EN.get(encryptIndex));
-//
+            Texts.encryptedFileText.add(Constants.ALPHABET_EN.get(encryptIndex));
+
 //            if (chars == '\n') {
 //                Texts.fileTextEncrypted.add('\n');
 //            }
         }
-        System.out.println("Encrypted Text: " + Texts.fileText);
-        return Texts.fileTextEncrypted;
+        return Texts.encryptedFileText;
     }   
 
-    public ArrayList<Character> decryptText(ArrayList<Character> inputtedInitialText, int key){
+    public ArrayList<Character> decryptText(ArrayList<Character> text, int key){
        
-        for (char chars : inputtedEncryptedText) {
+        for (char chars : text) {
             int position = Constants.ALPHABET_EN.indexOf(chars);
             int decryptIndex = (position - key) % 26;
             if(decryptIndex<0){
                 decryptIndex = Constants.ALPHABET_EN.size() + decryptIndex;
             }
-            Texts.decryptedText.add(Constants.ALPHABET_EN.get(decryptIndex));
-//
-//            if (chars == '\n') {
-//                Texts.decryptedText.add('\n');
-//            }
-        }
-        System.out.println("Encrypted Text: " + Texts.decryptedText);
-        return Texts.decryptedText;
-    }
-       public ArrayList<Character> decryptTextBruteForce(ArrayList<Character> inputtedInitialText, int key){
-       
-                  }
+            Texts.inputtedTextDecrypted.add(Constants.ALPHABET_EN.get(decryptIndex));
 
-       public ArrayList<Character> decryptFile(String filePath, int key){
-       Texts.initialTextFromFile = new FileService.scanTextFromFile(filePath);
-        for (char chars : Texts.fileText) {
+//            if (chars == '\n') {
+//                Texts.decryptedText.add('\n');
+//            }
+        }
+        return Texts.inputtedTextDecrypted;
+    }
+
+       public ArrayList<Character> decryptFile(String filePath, int key) {
+           FileReader fs = new FileReader();
+           try{Texts.encryptedFileText = fs.scanTextFromFile(filePath);}
+           catch(FileNotFoundException e){
+               System.out.println("File not exists");
+           }
+        for (char chars : Texts.encryptedFileText) {
             int position = Constants.ALPHABET_EN.indexOf(chars);
             int decryptIndex = (position - key) % 26;
             if(decryptIndex<0){
                 decryptIndex = Constants.ALPHABET_EN.size() + decryptIndex;
             }
-            Texts.decryptedText.add(Constants.ALPHABET_EN.get(decryptIndex));
+            Texts.decryptedFileText.add(Constants.ALPHABET_EN.get(decryptIndex));
 //
 //            if (chars == '\n') {
 //                Texts.decryptedText.add('\n');
 //            }
         }
-        System.out.println("Encrypted Text: " + Texts.decryptedText);
-        return Texts.decryptedText;
+        return Texts.decryptedFileText;
     }
-       public ArrayList<Character> decryptFileBruteForce(String filePath, int key){
-    }
+
+//    public ArrayList<Character> decryptTextBruteForce(ArrayList<Character> inputtedInitialText, int key){
+//
+//    }
+//    public ArrayList<Character> decryptFileBruteForce(String filePath, int key){}
     
 }
