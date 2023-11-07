@@ -26,14 +26,17 @@ public class Application {
                 // scan Key
                 // save Key
                             // If E -> encryptText(FilePath, key)
+                            // new File -> ENCRYPTED+oldFilePath
                             // saveTextToFile (newEncryptedFilePath)
                             // Исходный текст зашифрован и находится в новом файле FileSrevice.newEncryptedFilePath! 
 
                             // If D -> decryptText(FilePath, key)
+                            // new File -> DECRYPTED+oldFilePath
                             // saveTextToFile (newDecryptedFilePath)
                             // Расшифрованный текст находится в файле FileSrevice.newDecryptedFilePath! 
 
                             // If (B) -> bruteForce(FilePath, key)
+                            // new File -> DECRYPTED+oldFilePath
                             // saveTextToFile (newDecryptedFilePath)
                             // Расшифрованный текст находится в файле FileSrevice.newDecryptedFilePath! 
 
