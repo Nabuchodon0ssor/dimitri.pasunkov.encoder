@@ -7,20 +7,21 @@ import java.util.Scanner;
 public class Console {
     // public static ArrayList<Character> inputtedInitialText = new ArrayList<>();
     // public static ArrayList<Character> inputtedEncryptedText = new ArrayList<>();
-    Scanner scan = new Scanner(System.in);
+
     CaesarCipher cs = new CaesarCipher();
 
     public void run() {
             System.out.println("Welcome to the Text Encryption Software! Please write as number: \n" +
             "1. If You want to input the text into the console \n" +
             "2. If You want to choose a File with a text \n");
+            Scanner scan = new Scanner(System.in);
             int number = scan.nextInt();
             if(number==1) {consoleTextInput();
             }
             else if(number==2) {fileMenu();
             }
             else {System.out.println("Please enter 1 or 2");
-            scan.close();
+
             }
 
         }
@@ -37,42 +38,45 @@ public class Console {
                     "2. If You want to decrypt entered text, using a key \n" +
                     "3. If You want to decrypt entered text, using a brute force method (without key) \n" +
                     "4. If You want go back to previous menu");
-            int number2 = scan.nextInt();
+
+            Scanner scan2 = new Scanner(System.in);
+            int number2 = scan2.nextInt();
             if (number2 == 1) {consoleEncryptingText();}
             else if (number2 == 2) {consoleDecryptingText();}
             else if (number2 == 3) consoleMenu2();
             else if (number2 == 4) {run();}
             else {
             System.out.println("Please enter 1,2,3 or 4");}
-        scan.close();
+            scan2.close();
     }
     public void consoleEncryptingText(){
         System.out.println("Please enter a key: ");
+        Scanner scan = new Scanner(System.in);
         CaesarCipher.ENCRYPT_KEY = scan.nextInt();
         System.out.println("Encrypt key is: "+ CaesarCipher.ENCRYPT_KEY);
 
         cs.encryptText(Texts.inputtedInitialText,CaesarCipher.ENCRYPT_KEY); //Text saved to Texts.inputtedTextEncrypted
         System.out.println("Encrypted text is: \n" +
                 Texts.inputtedTextEncrypted);
+        scan.close();
 
     }
 
     public void consoleDecryptingText(){
         System.out.println("Please enter a key: ");
+        Scanner scan = new Scanner(System.in);
         CaesarCipher.DECRYPT_KEY = scan.nextInt();
         System.out.println("Decrypt key is: "+ CaesarCipher.DECRYPT_KEY);
 
         cs.decryptText(Texts.inputtedTextEncrypted,CaesarCipher.DECRYPT_KEY); //Text saved to Texts.inputtedTextDecrypted
         System.out.println("Decrypted text is: \n" +
                 Texts.inputtedTextDecrypted);
+        scan.close();
     }
     public void fileMenu(){
         System.out.println();
     }
-//
-//
-//        System.out.println("Inputted Text: " + Texts.inputtedInitialText);
-//    }
+
 
     public ArrayList<Character> saveInputtedText(){
         Scanner scan = new Scanner(System.in);
