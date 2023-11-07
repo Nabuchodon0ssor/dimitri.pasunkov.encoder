@@ -9,16 +9,6 @@ public class CeasarCipher {
     public static int DECRYPT_KEY;
     
     
-    public int scanKey() {
-        Scanner scan = new Scanner(System.in);
-        int key = scan.nextInt();
-        scan.close();
-        return key;
-    }
-    public void initializeDecryptKey() {
-        DECRYPT_KEY = scan.nextInt();
-        System.out.println("Inputted Key: " + DECRYPT_KEY);
-    }
     public ArrayList<Character> encryptInputtedText(ArrayList<Character> inputtedInitialText, int key) {
         ArrayList<Character> encryptedText = new ArrayList<>();
         for (char chars : inputtedInitialText) {
