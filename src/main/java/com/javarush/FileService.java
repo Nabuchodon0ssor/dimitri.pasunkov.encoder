@@ -8,7 +8,8 @@ public class FileService {
   
   
     
-  public void saveInitialTextFromFile(String filePath){
+  public ArrayList<Character> saveTextFromFile(String filePath){
+    ArrayList<Character> fileInitialText = new ArrayList<>();
     File file = new File(path);
     Scanner scanner = new Scanner(file);
         
@@ -22,6 +23,7 @@ public class FileService {
         }
         System.out.println("File Text: " + fileInitialText);
     scanner.close();
+    return fileInitialText;
     }
  
 public void writeTextToFile(ArrayList<Character> text, String newFilePath){
