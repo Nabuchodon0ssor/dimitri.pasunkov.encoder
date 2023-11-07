@@ -3,11 +3,12 @@ package com.javarush;
 public class FileService {
   public static ArrayList<Character> fileInitialText = new ArrayList<>();
   public static ArrayList<Character> fileEncryptedText = new ArrayList<>();
+  public static ArrayList<Character> fileDecryptedText = new ArrayList<>();
   
-  String path = "filepath";
-  
-  
-    
+  public static String filePath = "filepath";
+  public static String filePathEncrypted;
+  public static String filePathDecrypted;
+      
   public ArrayList<Character> saveTextFromFile(String filePath){
     ArrayList<Character> fileInitialText = new ArrayList<>();
     File file = new File(path);
