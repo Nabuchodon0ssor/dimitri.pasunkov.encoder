@@ -31,6 +31,7 @@ public void writeEncryptedTextToFile(String newFilePath){
        {
          pw.print(ch);
        }
+  pw.close();
 }
 
   
