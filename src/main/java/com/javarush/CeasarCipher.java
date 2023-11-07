@@ -40,7 +40,7 @@ public class CeasarCipher {
         return Texts.fileTextEncrypted;
     }   
 
-    public ArrayList<Character> decryptText(ArrayList<Character> inputtedEncryptedText, int key){
+    public ArrayList<Character> decryptText(ArrayList<Character> inputtedInitialText, int key){
        
         for (char chars : inputtedEncryptedText) {
             int position = Constants.ALPHABET_EN.indexOf(chars);
