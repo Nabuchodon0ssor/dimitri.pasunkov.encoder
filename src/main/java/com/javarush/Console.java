@@ -29,10 +29,16 @@ public class Console {
         return inputtedInitialText;
     }
 
+    public int scanKey() {
+        Scanner scan = new Scanner(System.in);
+        int key = scan.nextInt();
+        scan.close();
+        return key;
+    }
+    
     public void inputEncryptKey(){
         System.out.println("Please input the encrypting key");
-        CeasarCipher key = new CeasarCipher();
-        CeasarCipher.ENCRYPT_KEY = key.scanKey();
+        CeasarCipher.ENCRYPT_KEY = scanKey();
     }
     public void inputEncryptedText(){
         System.out.println("Please input the encrypted text to be decrypted. When the whole text is inputted, please write <<END>> from a new line");
@@ -43,7 +49,6 @@ public class Console {
     
     public void inputDecryptKey(){
         System.out.println("Please input the decrypting key");
-        CeasarCipher key = new CeasarCipher();
-        CeasarCipher.DECRYPT_KEY = key.scanKey();
+        CeasarCipher.DECRYPT_KEY = scanKey();
     }
 }
