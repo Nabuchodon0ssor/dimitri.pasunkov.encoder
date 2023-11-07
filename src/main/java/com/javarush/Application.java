@@ -9,7 +9,7 @@ public class Application {
 
         console.inputInitialText();
         console.inputEncryptKey();
-        cypher.encryptInputtedText(Console.inputtedInitialText);
+        cypher.encryptInputtedText(Console.inputtedInitialText, ENCRYPT_KEY);
 
         console.inputEncryptedText();
         console.inputDecryptKey();
