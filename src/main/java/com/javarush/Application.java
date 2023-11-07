@@ -29,7 +29,6 @@ public class Application {
                             // saveTextToFile (newEncryptedFilePath)
                             // Исходный текст зашифрован и находится в новом файле FileSrevice.newEncryptedFilePath! 
 
-
                             // If D -> decryptText(FilePath, key)
                             // saveTextToFile (newDecryptedFilePath)
                             // Расшифрованный текст находится в файле FileSrevice.newDecryptedFilePath! 
@@ -45,18 +44,14 @@ public class Application {
                 // Введите ключ
                 // scan Key
                 // save Key
-                            // If E -> encryptText(InputtedText, key)
-                            // saveText
-                            // Исходный текст : ... sout     
+                            // If E -> Texts.encrypted Text = encryptText(InputtedText, key)
+                            // Исходный текст : ... sout   (Texts.encrypted Text)  
 
+                            // If D -> Texts.decryptedText = decryptText(InputtedText, key)
+                            // Исходный текст : ... sout  (Texts.decryptedText) 
 
-                            // If D -> decryptText(InputtedText, key)
-                            // saveText
-                            // Исходный текст : ... sout   
-
-                            // If (B) -> bruteForce(InputtedText, key)
-                            // saveText
-                            // Исходный текст : ... sout  
+                            // If (B) -> Texts.decryptedText = bruteForce(InputtedText, key)
+                            // Исходный текст : ... sout (Texts.decryptedText) 
 
 
 
