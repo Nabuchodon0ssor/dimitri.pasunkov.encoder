@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Console {
-    public static ArrayList<Character> inputtedInitialText = new ArrayList<>();
-    public static ArrayList<Character> inputtedEncryptedText = new ArrayList<>();
+    // public static ArrayList<Character> inputtedInitialText = new ArrayList<>();
+    // public static ArrayList<Character> inputtedEncryptedText = new ArrayList<>();
+    
     public void inputInitialText(){
         System.out.println("Please input the text to be encrypted. When the whole text is inputted, please write <<END>> from a new line");
         saveInputtedText();
@@ -35,10 +36,9 @@ public class Console {
     }
     public void inputEncryptedText(){
         System.out.println("Please input the encrypted text to be decrypted. When the whole text is inputted, please write <<END>> from a new line");
-        saveInputtedText();
+        ArrayList<Character> inputtedEncryptedText = saveInputtedText();
         System.out.println("Inputted Text: " + inputtedEncryptedText);
     }
-
 
     
     public void inputDecryptKey(){
