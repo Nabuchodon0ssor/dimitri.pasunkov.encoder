@@ -24,7 +24,7 @@ public class CeasarCipher {
         return Texts.encryptedText;
     }
 
-    public ArrayList<Character> encryptText(String filePath, int key) {
+    public ArrayList<Character> encryptFile(String filePath, int key) {
         Texts.initialTextFromFile = new FileService.scanTextFromFile(filePath);
            
         for (char chars : inputtedInitialText) {
@@ -57,8 +57,11 @@ public class CeasarCipher {
         System.out.println("Encrypted Text: " + Texts.decryptedText);
         return Texts.decryptedText;
     }
+       public ArrayList<Character> decryptTextBruteForce(ArrayList<Character> inputtedInitialText, int key){
+       
+                  }
 
-       public ArrayList<Character> decryptText(String filePath, int key){
+       public ArrayList<Character> decryptFile(String filePath, int key){
        Texts.initialTextFromFile = new FileService.scanTextFromFile(filePath);
         for (char chars : Texts.fileText) {
             int position = Constants.ALPHABET_EN.indexOf(chars);
@@ -74,6 +77,8 @@ public class CeasarCipher {
         }
         System.out.println("Encrypted Text: " + Texts.decryptedText);
         return Texts.decryptedText;
+    }
+       public ArrayList<Character> decryptFileBruteForce(String filePath, int key){
     }
     
 }
