@@ -32,12 +32,12 @@ public class Application {
 
                             // If D -> decryptText(FilePath, key)
                             // new File -> DECRYPTED+oldFilePath
-                            // saveTextToFile (newDecryptedFilePath)
+                            // writeTextToFile (Text, newEncryptedFilePath)
                             // Расшифрованный текст находится в файле FileSrevice.newDecryptedFilePath! 
 
                             // If (B) -> bruteForce(FilePath, key)
                             // new File -> DECRYPTED+oldFilePath
-                            // saveTextToFile (newDecryptedFilePath)
+                            // writeTextToFile (Text, newEncryptedFilePath)
                             // Расшифрованный текст находится в файле FileSrevice.newDecryptedFilePath! 
 
                 // If Input -> Введите текст, в конце END
