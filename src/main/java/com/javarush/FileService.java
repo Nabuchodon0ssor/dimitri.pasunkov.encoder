@@ -24,10 +24,10 @@ public class FileService {
     scanner.close();
     }
  
-public void writeEncryptedTextToFile(String newFilePath){
+public void writeTextToFile(ArrayList<Character> text, String newFilePath){
     File newFile = new File(newFilePath);
     PrintWriter pw = new PrintWriter(newFile);
-     for (Character ch : fileEncryptedText) 
+     for (Character ch : text) 
        {
          pw.print(ch);
        }
