@@ -4,11 +4,14 @@ public class FileService {
   public static ArrayList<Character> fileInitialText = new ArrayList<>();
   public static ArrayList<Character> fileEncryptedText = new ArrayList<>();
   String path = "filepath";
-  File file = new File(path);
-  Scanner scanner = new Scanner(file);
+  
+  
     
-  public void saveFileInitialText(){
-        while(scanner.hasNext()) {
+  public void saveFileInitialText(String path){
+    File file = new File(path);
+    Scanner scanner = new Scanner(file);
+        
+    while(scanner.hasNextLine()) {
             String line = scan.nextLine();
             char[] chars = line.toCharArray();
             for (char ch : chars) {
@@ -17,6 +20,9 @@ public class FileService {
 //            fileInitialText.add('\n');
         }
         System.out.println("File Text: " + fileInitialText);
+    scanner.close();
     }
+ 
+ 
   
 }
