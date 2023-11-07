@@ -9,6 +9,7 @@ public class CeasarCipher {
     public static int ENCRYPT_KEY;
     public static int DECRYPT_KEY;
     Scanner scan = new Scanner(System.in);
+    
     public void initializeEncryptKey() {
         ENCRYPT_KEY = scan.nextInt();
         System.out.println("Inputted Key: " + ENCRYPT_KEY);
@@ -17,10 +18,10 @@ public class CeasarCipher {
         DECRYPT_KEY = scan.nextInt();
         System.out.println("Inputted Key: " + DECRYPT_KEY);
     }
-    public void encryptInputtedText(ArrayList<Character> inputtedInitialText) {
+    public void encryptInputtedText(ArrayList<Character> inputtedInitialText, int key) {
         for (char chars : inputtedInitialText) {
             int position = Constants.ALPHABET_EN.indexOf(chars);
-            int encryptIndex = (ENCRYPT_KEY + position) % 26;
+            int encryptIndex = (key + position) % 26;
             encryptedText.add(Constants.ALPHABET_EN.get(encryptIndex));
 //
 //            if (chars == '\n') {
