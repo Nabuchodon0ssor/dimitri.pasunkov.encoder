@@ -13,7 +13,7 @@ public class Application {
 
         console.inputEncryptedText();
         console.inputDecryptKey();
-        cypher.decryptInputtedText(Console.inputtedEncryptedText);
+        cypher.decryptInputtedText(Console.inputtedEncryptedText, DECRYPT_KEY);
 
     }
 }
