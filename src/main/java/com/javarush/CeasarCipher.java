@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class CeasarCipher {
 
-    ArrayList<Character> encryptedText = new ArrayList<>();
-    ArrayList<Character> decryptedText = new ArrayList<>();
+       
     public static int ENCRYPT_KEY;
     public static int DECRYPT_KEY;
     Scanner scan = new Scanner(System.in);
@@ -18,7 +17,8 @@ public class CeasarCipher {
         DECRYPT_KEY = scan.nextInt();
         System.out.println("Inputted Key: " + DECRYPT_KEY);
     }
-    public void encryptInputtedText(ArrayList<Character> inputtedInitialText, int key) {
+    public ArrayList<Character> encryptInputtedText(ArrayList<Character> inputtedInitialText, int key) {
+        ArrayList<Character> encryptedText = new ArrayList<>();
         for (char chars : inputtedInitialText) {
             int position = Constants.ALPHABET_EN.indexOf(chars);
             int encryptIndex = (key + position) % 26;
@@ -29,12 +29,14 @@ public class CeasarCipher {
 //            }
         }
         System.out.println("Encrypted Text: " + encryptedText);
+        return encryptedText;
     }
 
-    public void decryptInputtedText(ArrayList<Character> inputtedEncryptedText){
+    public ArrayList<Character> decryptInputtedText(ArrayList<Character> inputtedEncryptedText, int key){
+        ArrayList<Character> decryptedText = new ArrayList<>();
         for (char chars : inputtedEncryptedText) {
             int position = Constants.ALPHABET_EN.indexOf(chars);
-            int decryptIndex = (position - ENCRYPT_KEY) % 26;
+            int decryptIndex = (position - key) % 26;
             if(decryptIndex<0){
                 decryptIndex = Constants.ALPHABET_EN.size() + decryptIndex;
             }
@@ -45,7 +47,7 @@ public class CeasarCipher {
 //            }
         }
         System.out.println("Encrypted Text: " + decryptedText);
-
+        return decryptedText;
     }
 
     public void encryptFiledText(ArrayList<Character> inputtedText){
