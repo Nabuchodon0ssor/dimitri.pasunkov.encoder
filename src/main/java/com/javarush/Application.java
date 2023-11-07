@@ -27,7 +27,7 @@ public class Application {
                 // save Key
                             // If E -> encryptText(FilePath, key)
                             // new File -> ENCRYPTED+oldFilePath
-                            // saveTextToFile (newEncryptedFilePath)
+                            // writeTextToFile (Text, newEncryptedFilePath)
                             // Исходный текст зашифрован и находится в новом файле FileSrevice.newEncryptedFilePath! 
 
                             // If D -> decryptText(FilePath, key)
