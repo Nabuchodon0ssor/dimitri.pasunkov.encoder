@@ -8,6 +8,11 @@ public class Console {
     public static ArrayList<Character> inputtedEncryptedText = new ArrayList<>();
     public void inputInitialText(){
         System.out.println("Please input the text to be encrypted. When the whole text is inputted, please write <<END>> from a new line");
+        saveInitialText();
+        System.out.println("Inputted Text: " + inputtedInitialText);
+    }
+
+    public void saveInitialText(){
         Scanner scan = new Scanner(System.in);
         while(true) {
             String line = scan.nextLine();
@@ -18,7 +23,7 @@ public class Console {
             }
 //            inputtedInitialText.add('\n');
         }
-        System.out.println("Inputted Text: " + inputtedInitialText);
+        scan.close();
     }
 
     public void inputEncryptKey(){
