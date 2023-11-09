@@ -19,7 +19,7 @@ public class Console {
             int number = scan.nextInt();
             if(number==1) {consoleTextInput();
             }
-            else if(number==2) {fileMenu();
+            if(number==2) {fileMenu();
             }
             else {System.out.println("Please enter 1 or 2");
 
@@ -82,7 +82,32 @@ public class Console {
                 Texts.inputtedTextDecrypted);
     }
     public void fileMenu(){
-        System.out.println();
+        System.out.println("Please input the file path");
+        saveFilePath();
+        System.out.println("The file path is: " + FileService.originalFilePath);
+        System.out.println("Please Please write as number: \n" +
+                "1. If You want to encrypt entered text, using a key \n" +
+                "2. If You want to decrypt entered text, using a key \n" +
+                "3. If You want to decrypt entered text, using a brute force method (without key) \n" +
+//                "4. If You want go back to previous menu");
+        int number = scan.nextInt();
+        if (number2 == 1) {consoleEncryptingText();}
+        else if (number2 == 2) {consoleDecryptingText();}
+        else if (number2 == 3) consoleMenu2();
+//        else if (number2 == 4) {run();}
+        else {
+            System.out.println("Please enter 1,2 or 3");}
+        System.out.println("Please input the key");
+
+    }
+
+    private void consoleMenu4() {
+
+    }
+
+    private void saveFilePath() {
+        FileService.originalFilePath = scan.nextLine();
+
     }
 
 
