@@ -3,10 +3,8 @@ import java.util.ArrayList;
 
 public class CaesarCipher {
 
-       
     public static int KEY;
 
-    
     public ArrayList<Character> encryptText(ArrayList<Character> inputtedInitialText, int key) {
         ArrayList<Character> encryptedText = new ArrayList<>();
         for (char chars : inputtedInitialText) {

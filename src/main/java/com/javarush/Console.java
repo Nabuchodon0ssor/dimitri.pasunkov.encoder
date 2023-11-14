@@ -54,8 +54,8 @@ public class Console {
         System.out.println("Please input the file path. \n" +
                 "Example: E:\\JavaRush\\dimitri.pasunkov.encoder\\src\\main\\java\\com\\javarush\\Poem.txt");
 //        FileService.originalFilePath = scan.nextLine();
-//        System.out.println("The file path is: " + FileService.originalFilePath);
         FileService.originalFilePath = "E:\\JavaRush\\dimitri.pasunkov.encoder\\src\\main\\java\\com\\javarush\\Poem.txt";
+        System.out.println("The file path is: " + FileService.originalFilePath);
         System.out.println("Please input the encryption key: ");
         CaesarCipher.KEY = cts.scanKey();
         System.out.println("The encryption key is: " + CaesarCipher.KEY);
