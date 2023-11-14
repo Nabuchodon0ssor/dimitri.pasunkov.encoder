@@ -49,7 +49,7 @@ public class Console {
     }
     public void consoleFileMenu(){
         System.out.println("Please input the file path. \n" +
-                "Example: E:\\JavaRush\\dimitri.pasunkov.encoder\\src\\main\\java\\com\\javarush\\Poem.txt");
+              "Example: E:\\JavaRush\\dimitri.pasunkov.encoder\\src\\main\\java\\com\\javarush\\Poem.txt");
 //      FileService.originalFilePath = scan.nextLine();
         FileService.originalFilePath = "E:\\JavaRush\\dimitri.pasunkov.encoder\\src\\main\\java\\com\\javarush\\Poem.txt";
         System.out.println("The file path is: " + FileService.originalFilePath);
