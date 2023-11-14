@@ -19,7 +19,6 @@ public class ConsoleTextService {
         return inputtedText;
     }
     public int scanKey() {
-        int key = scanner.nextInt();
-        return key;
+        return scanner.nextInt();
     }
 }
