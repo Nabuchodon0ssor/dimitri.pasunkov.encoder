@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileReader {
-    public ArrayList<Character> scanTextFromFile(String filePath) throws FileNotFoundException {
+    public ArrayList<Character> readTextFromFile(String filePath) {
         ArrayList<Character> text = new ArrayList<>();
+        try{
         File file = new File(filePath);
         Scanner scanner = new Scanner(file);
 
@@ -17,9 +18,14 @@ public class FileReader {
             for (char ch : chars) {
                 text.add(ch);
             }
-//            fileInitialText.add('\n');
+
         }
         scanner.close();
+        }
+        catch(Exception e){
+            System.out.println("File not exists");
+        }
+
         return text;
     }
 }
