@@ -22,7 +22,7 @@ public class FileReader {
         scanner.close();
         }
         catch(Exception e){
-            System.out.println("File not exists");
+            System.out.println("File not found");
         }
 
         return text;

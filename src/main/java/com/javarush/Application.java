@@ -14,8 +14,5 @@ public class Application {
             Console console = new Console();
             console.welcomeMenu();
         }
-
-
     }
 }
-

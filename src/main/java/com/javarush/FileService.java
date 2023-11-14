@@ -10,19 +10,24 @@ public class FileService {
       
   public String createEncryptedFile(String filePath) {
     Path path = null;
-    try{path = Files.createFile(Path.of(filePath+"[ENCRYPTED]"));}
-    catch(Exception e){e.printStackTrace();}
-    return path.toString();
+    try{
+        path = Files.createFile(Path.of(filePath+"[ENCRYPTED]"));
+    }
+    catch(Exception e){
+      System.out.println("File not found");
+    }
+ 
+    return path != null ? path.toString() : null;
   }
 
   public String createDecryptedFile(String filePath) {
     Path path = null;
-    try{path = Files.createFile(Path.of(filePath+"[DECRYPTED]"));}
-    catch(Exception e){e.printStackTrace();}
-    return path.toString();
+    try{
+      path = Files.createFile(Path.of(filePath+"[DECRYPTED]"));
+    }
+    catch(Exception e){
+      System.out.println("File not found");
+    }
+    return path != null ? path.toString() : null;
   }
-
-
-  
-  
 }

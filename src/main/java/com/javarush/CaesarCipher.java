@@ -2,9 +2,7 @@ package com.javarush;
 import java.util.ArrayList;
 
 public class CaesarCipher {
-
     public static int KEY;
-
     public ArrayList<Character> encryptText(ArrayList<Character> inputtedInitialText, int key) {
         ArrayList<Character> encryptedText = new ArrayList<>();
         for (char chars : inputtedInitialText) {
@@ -17,7 +15,6 @@ public class CaesarCipher {
         }
         return encryptedText;
     }
-
     public ArrayList<Character> decryptText(ArrayList<Character> text, int key){
         ArrayList<Character> decryptedText = new ArrayList<>();
         for (char chars : text) {

@@ -10,20 +10,17 @@ public class Console {
     CaesarCipher cs = new CaesarCipher();
 
     public void welcomeMenu() {
-            while(true) {
                 System.out.println("Welcome to the Text Encryption Software! Please write as number: \n" +
                         "1. If You want to input the text into the console \n" +
                         "2. If You want to choose a File with a text \n");
                 int number = scan.nextInt();
                 if (number == 1) {
                     consoleTextMenu();
-                    break;
                 }
                 if (number == 2) {
                     consoleFileMenu();
-                    break;
                 }
-            }
+                else welcomeMenu();
     }
 
     public void consoleTextMenu(){
@@ -53,7 +50,7 @@ public class Console {
     public void consoleFileMenu(){
         System.out.println("Please input the file path. \n" +
                 "Example: E:\\JavaRush\\dimitri.pasunkov.encoder\\src\\main\\java\\com\\javarush\\Poem.txt");
-//        FileService.originalFilePath = scan.nextLine();
+//      FileService.originalFilePath = scan.nextLine();
         FileService.originalFilePath = "E:\\JavaRush\\dimitri.pasunkov.encoder\\src\\main\\java\\com\\javarush\\Poem.txt";
         System.out.println("The file path is: " + FileService.originalFilePath);
         System.out.println("Please input the encryption key: ");

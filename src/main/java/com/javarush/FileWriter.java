@@ -14,6 +14,7 @@ public class FileWriter {
             pw.print(ch);
         }
         pw.close();}
-        catch(Exception e){e.printStackTrace();}
+        catch(Exception e){
+            System.out.println("File not found");}
     }
 }
