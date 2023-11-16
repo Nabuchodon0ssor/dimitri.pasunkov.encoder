@@ -5,10 +5,10 @@ public class Console {
     Scanner scan = new Scanner(System.in);
     ConsoleTextService cts = new ConsoleTextService();
     FileService fs = new FileService();
-    FileReader fr = new FileReader();
     FileWriter fw = new FileWriter();
     CaesarCipher cs = new CaesarCipher();
     BruteForce bf = new BruteForce();
+    WorkWithTerminal wwt = new WorkWithTerminal();
 
     public void welcomeMenu() {
                 System.out.println("Welcome to the Text Encryption Software! Please write as number: \n" +
@@ -23,16 +23,15 @@ public class Console {
                 }
                 else welcomeMenu();
     }
-
     public void consoleTextMenu(){
             System.out.println("Please input the text. When the whole text is inputted, please write <<END>> from a new line");
             Texts.inputtedInitialText = cts.readInputtedText();
-            System.out.println("The inputted text is: " + Texts.inputtedInitialText);
+            System.out.println("The inputted text is: \n" + cts.getStringRepresentation(Texts.inputtedInitialText));
             System.out.println("Please input the encryption key: ");
-            CaesarCipher.KEY = cts.scanKey();
+            CaesarCipher.KEY = Integer.parseInt(scan.nextLine());
             System.out.println("The encryption key is: " + CaesarCipher.KEY);
             Texts.inputtedTextEncrypted = cs.encryptText(Texts.inputtedInitialText,CaesarCipher.KEY);
-            System.out.println("The encrypted text is: " + Texts.inputtedTextEncrypted);
+            System.out.println("The encrypted text is: \n" + cts.getStringRepresentation(Texts.inputtedTextEncrypted));
             while(true) {
                 System.out.println("Do You want to decrypt encrypted text back? Yes(1), No(2)");
                 int number = Integer.parseInt(scan.nextLine());
@@ -50,43 +49,46 @@ public class Console {
     }
     public void consoleFileMenu(){
         System.out.println("Please input the file path. \n" +
-              "Example: E:\\JavaRush\\dimitri.pasunkov.encoder\\src\\main\\java\\com\\javarush\\Crypto_addicts.txt");
-//        FileService.originalFilePath = scan.nextLine();
-        FileService.originalFilePath = "E:\\JavaRush\\dimitri.pasunkov.encoder\\src\\main\\java\\com\\javarush\\Crypto_addicts.txt";
+              "Example: E:\\\\JavaRush\\\\dimitri.pasunkov.encoder\\\\src\\\\main\\\\java\\\\com\\\\javarush\\\\Harry_Potter.txt");
+        FileService.originalFilePath = scan.nextLine();
         System.out.println("The file path is: " + FileService.originalFilePath);
         System.out.println("Please input the encryption key: ");
-        CaesarCipher.KEY = cts.scanKey();
+        CaesarCipher.KEY = Integer.parseInt(scan.nextLine());
         System.out.println("The encryption key is: " + CaesarCipher.KEY);
-
-        Texts.originalTextFromFile = fr.readTextFromFile(FileService.originalFilePath);
-        Texts.encryptedFileText = cs.encryptText(Texts.originalTextFromFile,CaesarCipher.KEY);
-        FileService.filePathEncrypted = fs.createEncryptedFile(FileService.originalFilePath);
-        fw.writeTextToFile(Texts.encryptedFileText, FileService.filePathEncrypted);
+        wwt.encryptFile(FileService.originalFilePath,CaesarCipher.KEY);
         System.out.println("The new file with encrypted text is: " + FileService.filePathEncrypted);
         while(true) {
-            System.out.println("Do You want to decrypt encrypted file back? Yes(1), No(2). \n" +
-                    "Or decrypt file using brute force method? (3)");
+            System.out.println("Do You want to decrypt encrypted file: \n" +
+                    "With the same key (1) \n" +
+                    "Using brute force method? (2) \n" +
+                    "End working with program (3)");
             int number = scan.nextInt();
-            if (number == 2) {
+            if (number == 3) {
                 System.out.println("Thank You for using this software!");
                 break;
             }
             if (number == 1) {
-                Texts.decryptedFileText = cs.decryptText(Texts.encryptedFileText, CaesarCipher.KEY);
-                FileService.filePathDecrypted = fs.createDecryptedFile(FileService.filePathEncrypted);
-                fw.writeTextToFile(Texts.decryptedFileText, FileService.filePathDecrypted);
-                System.out.println("The new file with decrypted text is: " + FileService.filePathDecrypted);
-                System.out.println("Thank You for using this software!");
+                consoleFileMenu1();
                 break;
             }
-            if (number == 3) {
-                Texts.decryptedFileText = bf.bruteForce(Texts.encryptedFileText);
-                FileService.filePathDecrypted = fs.createDecryptedFile(FileService.filePathEncrypted);
-                fw.writeTextToFile(Texts.decryptedFileText, FileService.filePathDecrypted);
-                System.out.println("The new file with decrypted text (using brute force method) is: " + FileService.filePathDecrypted);
-                System.out.println("Thank You for using this software!");
+            if (number == 2) {
+                consoleFileMenu2();
                 break;
             }
         }
+    }
+    void consoleFileMenu1(){
+        Texts.decryptedFileText = cs.decryptText(Texts.encryptedFileText, CaesarCipher.KEY);
+        FileService.filePathDecrypted = fs.createDecryptedFile(FileService.filePathEncrypted);
+        fw.writeTextToFile(Texts.decryptedFileText, FileService.filePathDecrypted);
+        System.out.println("The new file with decrypted text is: " + FileService.filePathDecrypted);
+        System.out.println("Thank You for using this software!");
+    }
+    void consoleFileMenu2(){
+        Texts.decryptedFileText = bf.bruteForce(Texts.encryptedFileText);
+        FileService.filePathDecrypted = fs.createDecryptedFile(FileService.filePathEncrypted);
+        fw.writeTextToFile(Texts.decryptedFileText, FileService.filePathDecrypted);
+        System.out.println("The new file with decrypted text (using brute force method) is: " + FileService.filePathDecrypted);
+        System.out.println("Thank You for using this software!");
     }
 }

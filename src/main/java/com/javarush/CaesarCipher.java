@@ -27,9 +27,7 @@ public class CaesarCipher {
                 decryptedText.add(Constants.ALPHABET_EN.get(decryptIndex));
             }
             else decryptedText.add(chars);
-//            if (chars == '\n') {
-//                Texts.decryptedText.add('\n');
-//            }
+
         }
         return decryptedText;
     }

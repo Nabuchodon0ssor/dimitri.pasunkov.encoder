@@ -12,10 +12,10 @@ public class BruteForce {
             ArrayList<Character> decryptedText = cs.decryptText(inputtedEncryptedText,i);
             int amountOfPointsAndSpaces = 0;
             for (char chars:decryptedText) {
-                if(chars==',' && decryptedText.get(decryptedText.indexOf(chars)+1)==' '){
+                if(chars=='!' && decryptedText.get(decryptedText.indexOf(chars)+1)=='’'){
                     amountOfPointsAndSpaces++;
                 }
-                if(chars=='.' && decryptedText.get(decryptedText.indexOf(chars)+1)==' '){
+                if(chars=='?' && decryptedText.get(decryptedText.indexOf(chars)+1)=='’'){
                     amountOfPointsAndSpaces++;
                 }
             }

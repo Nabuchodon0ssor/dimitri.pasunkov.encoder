@@ -14,11 +14,18 @@ public class ConsoleTextService {
             for (char ch : chars) {
                 inputtedText.add(ch);
             }
-//            inputtedInitialText.add('\n');
+            inputtedText.add('\n');
         }
         return inputtedText;
     }
-    public int scanKey() {
-        return scanner.nextInt();
+    public String getStringRepresentation(ArrayList<Character> list)
+    {
+        StringBuilder builder = new StringBuilder(list.size());
+        for(Character ch: list)
+        {
+            builder.append(ch);
+        }
+        return builder.toString();
     }
+
 }

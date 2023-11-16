@@ -17,14 +17,13 @@ public class FileReader {
             for (char ch : chars) {
                 text.add(ch);
             }
-
+            text.add('\n');
         }
         scanner.close();
         }
         catch(Exception e){
             System.out.println("File not found");
         }
-
         return text;
     }
 }
