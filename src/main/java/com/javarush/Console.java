@@ -41,7 +41,7 @@ public class Console {
                 }
                 if (number == 1) {
                     Texts.inputtedTextDecrypted = cs.decryptText(Texts.inputtedTextEncrypted, CaesarCipher.KEY);
-                    System.out.println("The decrypted text is: " + Texts.inputtedTextDecrypted);
+                    System.out.println("The decrypted text is: " + cts.getStringRepresentation(Texts.inputtedTextDecrypted));
                     System.out.println("Thank You for using this software!");
                     break;
                 }
