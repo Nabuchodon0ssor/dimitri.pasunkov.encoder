@@ -8,7 +8,7 @@ public class CaesarCipher {
         for (char chars : inputtedInitialText) {
             if(Constants.ALPHABET_EN.contains(chars)) {
                 int position = Constants.ALPHABET_EN.indexOf(chars);
-                int encryptIndex = (key + position) % 26;
+                int encryptIndex = (key + position) % Constants.ALPHABET_EN.size();
                 encryptedText.add(Constants.ALPHABET_EN.get(encryptIndex));
             }
             else encryptedText.add(chars);
@@ -20,7 +20,7 @@ public class CaesarCipher {
         for (char chars : text) {
             if(Constants.ALPHABET_EN.contains(chars)) {
                 int position = Constants.ALPHABET_EN.indexOf(chars);
-                int decryptIndex = (position - key) % 26;
+                int decryptIndex = (position - key) % Constants.ALPHABET_EN.size();
                 if (decryptIndex < 0) {
                     decryptIndex = Constants.ALPHABET_EN.size() + decryptIndex;
                 }
