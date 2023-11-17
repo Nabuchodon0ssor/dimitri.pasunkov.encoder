@@ -1,5 +1,4 @@
 package com.javarush;
-
 import java.util.ArrayList;
 
 public class BruteForce {

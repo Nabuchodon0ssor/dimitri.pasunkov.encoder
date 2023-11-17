@@ -4,6 +4,7 @@ public class Application {
     public static void main(String[] args) {
         if(args.length == 2||args.length==3) {
             WorkWithTerminal wwt = new WorkWithTerminal();
+
             if(args[0].equals("ENCRYPT")){
                 wwt.encryptFile(args[1],Integer.parseInt(args[2]));
             }
